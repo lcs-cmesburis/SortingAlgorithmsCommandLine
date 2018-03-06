@@ -64,19 +64,24 @@ while unsorted.count > 0 {
         sorted.append(numberToBeInserted)
     } else {
         // Find where to insert the new number in the sorted list
+        var numberWasInserted = false
         for i in 0...sorted.count - 1 {
             if sorted[i] > numberToBeInserted{
                 sorted.insert(numberToBeInserted, at: i)
+                numberWasInserted = true
                 break // we've insered the number in the sorted list, now stop this loop
             }
         }
         
+        // Add a card to the end of the sorted list only when it was not already inserted
+        if numberWasInserted == false {
+            sorted.append(numberToBeInserted)
+        }
         
     }
     
 
 }
-
 
 
 // ----------- Final part of the program, show the sorted list -----------
